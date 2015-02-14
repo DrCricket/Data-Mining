@@ -62,13 +62,32 @@ class flc_triangular:
         if zone == "hi":
             return [self.mid,(y*(self.hi-self.mid))+self.mid,self.hi,self.hi]
         
-    def zones(self,x):
+    def zones(self,inp):
         
-        if x <= self.mid and x >= self.low:
-            return ["low","hi"]
+        if inp < self.mid:
+            return ["low","mid"]
         else:
             return ["mid","hi"]
+
+    def trap_area(self,a,b,c,d,height):
+
+        ar = 0.5*(b-a)*height
+        ar = ar + (c-b)*height
+        ar = ar + 0.5*(d-c)*height
+
+        return ar
     
+    def trap_centroid(self,a,b,c,d,height):
+
+        x = (c-b)
+        y = (d-a)
+        z = (b-a)
+
+        Cx = ((2*x*z) + (x*x) + (z*y) + (x*y) + (y*y))/(3*(x+y))
+        Cy = height*((2*x) + y)/(3*(x+y))
+
+        return [Cx,Cy]
+        
         
         
 
