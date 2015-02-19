@@ -87,6 +87,19 @@ class flc_triangular:
         Cy = height*((2*x) + y)/(3*(x+y))
 
         return [Cx,Cy]
+
+    def CoG(self,a,b,c,d,height):
+        print b+((c-b)/2)
+        print (2*c+d)/3
+        print (2*b+a)/3
+        if a == b:
+            return ((b+((c-b)/2)) + (2*c+d)/3)/2
+        if c == d:
+            return ((b+((c-b)/2))+(2*b+a)/3)/2
+        
+        return ((b+((c-b)/2))+ ((2*b+a)/3) + ((2*c+d)/3))/3
+
+        
         
         
         
